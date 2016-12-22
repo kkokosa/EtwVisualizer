@@ -9,6 +9,13 @@
         <local:MainViewModel/>
     </Window.DataContext>
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" />
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" Zoom="X">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Timestamp"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Value"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
     </Grid>
 </Window>
