@@ -6,7 +6,11 @@ open FSharp.ViewModule
 open FSharp.ViewModule.Validation
 open FsXaml
 
+open LiveCharts
+//open LiveCharts.Wpf
+
 type MainView = XAML<"MainWindow.xaml", true>
 
 type MainViewModel() as self = 
     inherit ViewModelBase()    
+

@@ -3,10 +3,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:ViewModels;assembly=EtwVisualizer"
     xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     Title="EtwVisualizer" Height="200" Width="400">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
-    <Grid>    
+    <Grid>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" />
     </Grid>
 </Window>
