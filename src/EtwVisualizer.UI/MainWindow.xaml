@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:ViewModels;assembly=EtwVisualizer"
     xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-    Title="EtwVisualizer" Height="200" Width="400">
+    Title="EtwVisualizer" Height="480" Width="640">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
@@ -14,7 +14,8 @@
                 <lvc:Axis Title="Timestamp"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Value"></lvc:Axis>
+                <lvc:Axis Title="Value" Sections="{Binding SectionsCollection}">
+                </lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
     </Grid>
