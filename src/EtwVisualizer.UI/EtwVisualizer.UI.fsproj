@@ -46,10 +46,10 @@
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="LiveCharts">
-      <HintPath>C:\Projects\EtwVisualizer\libs\Livecharts.dll</HintPath>
+      <HintPath>..\..\libs\Livecharts.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts.Wpf">
-      <HintPath>C:\Projects\EtwVisualizer\libs\LiveCharts.Wpf.dll</HintPath>
+      <HintPath>..\..\libs\LiveCharts.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

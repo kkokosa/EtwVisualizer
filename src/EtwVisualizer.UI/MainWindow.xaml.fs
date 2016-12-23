@@ -45,9 +45,9 @@ type MainViewModel() as self =
             { Timestamp = 7.0; Value = 1.0 };
             { Timestamp = 9.0; Value = 4.0 }
         |] )
-        series2.LineSmoothness <- 0.0 // for LineSeries
-        series2.Fill <- Brushes.Transparent
-        series2.AreaLimit <- 0.0
+        //series2.LineSmoothness <- 0.0 // for LineSeries
+        //series2.Fill <- Brushes.Transparent
+        //series2.AreaLimit <- 0.0
 
         System.Windows.Controls.Panel.SetZIndex(series1, 1)
         System.Windows.Controls.Panel.SetZIndex(series2, 2)
