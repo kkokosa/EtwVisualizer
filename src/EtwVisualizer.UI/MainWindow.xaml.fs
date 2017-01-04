@@ -21,37 +21,37 @@ type MainViewModel() as self =
     inherit ViewModelBase()    
 
     member this.SeriesCollection = 
+        let rnd = System.Random()
         let mapper = LiveCharts.Configurations.Mappers.Xy<EtwEvent>().X(fun e -> e.Timestamp)
                                                                      .Y(fun e -> e.Value)
         let coll = new SeriesCollection(mapper)
 
         let series1 = new StackedAreaSeries()
         series1.Title <- "Gen#0"
-        series1.Values <- new ChartValues<EtwEvent>( [| 
-            { Timestamp = 1.0; Value = 2.0 };
-            { Timestamp = 4.0; Value = 6.0 };
-            { Timestamp = 5.0; Value = 4.0 };
-            { Timestamp = 7.0; Value = 3.0 };
-            { Timestamp = 9.0; Value = 0.0 }
-        |] )
+        series1.Values <- new ChartValues<EtwEvent>(
+            [| 
+                for i in 0..99 -> { Timestamp = (float i); Value = rnd.NextDouble() * 100.0 }
+            |] )
         series1.LineSmoothness <- 0.0 // for LineSeries
 
         let series2 = new LineSeries()
         series2.Title <- "% Time in GC"
-        series2.Values <- new ChartValues<EtwEvent>( [| 
-            { Timestamp = 1.0; Value = 0.0 };
-            { Timestamp = 4.0; Value = 4.0 };
-            { Timestamp = 5.0; Value = 3.0 };
-            { Timestamp = 7.0; Value = 1.0 };
-            { Timestamp = 9.0; Value = 4.0 }
-        |] )
-        //series2.LineSmoothness <- 0.0 // for LineSeries
-        //series2.Fill <- Brushes.Transparent
-        //series2.AreaLimit <- 0.0
+        series2.Values <- new ChartValues<EtwEvent>( 
+            [| 
+                for i in 0..99 -> { Timestamp = (float i); Value = rnd.NextDouble() * 40.0 + 20.0}
+            |] )
 
         System.Windows.Controls.Panel.SetZIndex(series1, 1)
         System.Windows.Controls.Panel.SetZIndex(series2, 2)
-        //series.ColumnPadding <- 1.0
+
         coll.Add(series2)
         coll.Add(series1)
         coll
+
+    member this.SectionsCollection =
+        let coll = new SectionsCollection()
+        let section1 = new AxisSection( Value = 4.0, SectionWidth = 4.0, Label = "Gen0" )
+        System.Windows.Controls.Panel.SetZIndex(section1, 3)
+        coll.Add(section1)
+        coll
+
