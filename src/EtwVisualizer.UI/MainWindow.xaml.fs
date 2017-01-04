@@ -34,7 +34,7 @@ type MainViewModel() as self =
             |] )
         series1.LineSmoothness <- 0.0 // for LineSeries
 
-        let series2 = new StepLineSeries()
+        let series2 = new LineSeries()
         series2.Title <- "% Time in GC"
         series2.Values <- new ChartValues<EtwEvent>( 
             [| 
